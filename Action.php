@@ -45,10 +45,9 @@ class RoutesHelper_Action extends Widget implements ActionInterface
         // 权限检查
         try {
             User::alloc()->pass('administrator');
-        } catch (\Exception $e) {
+        } catch (Exception) {
             Notice::alloc()->set(_t("权限不足"), NULL, 'error');
             $this->response->goBack();
-            return;
         }
 
         // 初始化路由数据
