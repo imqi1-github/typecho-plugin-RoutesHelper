@@ -38,6 +38,21 @@ if (isset($routingTable[0])) {
     <div class="row typecho-page-main">
       <div class="col-mb-12 col-tb-8 col-tb-offset-2">
 
+        <!-- 路由备份 -->
+        <form action="<?php $security->index('/action/routes-helper'); ?>" method="post">
+          <ul class="typecho-option">
+            <li>
+              <label class="typecho-label"><?php _e('路由备份'); ?></label>
+              <button type="submit" name="do" value="backup" class="btn"><?php _e('备份路由'); ?></button>
+              <button type="submit" name="do" value="recover" class="btn"><?php _e('还原备份'); ?></button>
+              <button type="submit" name="do" value="delete-backup" class="btn"><?php _e('删除备份'); ?></button>
+              <p class="description">
+                <?php _e('备份当前路由配置到数据库，支持随时还原。'); ?>
+              </p>
+            </li>
+          </ul>
+        </form>
+
         <!-- 恢复默认路由 -->
         <form action="<?php $security->index('/action/routes-helper?do=restore'); ?>" method="post">
           <ul class="typecho-option">
